@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".screen.DetailExerciseScreen">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/exercise_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/arrow_back"
+        app:title="Supino Reto"
+        app:titleCentered="true" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/exercise_screen_image"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        android:layout_margin="16dp"
+        android:background="@color/black"
+        android:scaleType="centerInside"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/exercise_toolbar" />
+
+    <TextView
+        android:id="@+id/exercise_tv_seriesvsrep"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Series x Repetições"
+        app:layout_constraintStart_toStartOf="@id/exercise_screen_image"
+        app:layout_constraintTop_toBottomOf="@id/exercise_screen_image" />
+
+    <TextView
+        android:id="@+id/exercise_screen_series_reps"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="@id/exercise_tv_seriesvsrep"
+        app:layout_constraintStart_toStartOf="@id/exercise_tv_seriesvsrep"
+        app:layout_constraintTop_toBottomOf="@id/exercise_tv_seriesvsrep"
+        tools:text="3x 15" />
+
+    <TextView
+        android:id="@+id/exercise_tv_carga"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:text="Carga (Kg)"
+        app:layout_constraintBottom_toBottomOf="@id/exercise_tv_seriesvsrep"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/exercise_tv_seriesvsrep"
+        app:layout_constraintTop_toTopOf="@id/exercise_tv_seriesvsrep" />
+
+    <TextView
+        android:id="@+id/exercise_tv_carga_value"
+        style="@style/Widget.Material3.TextInputEditText.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="0.0"
+        android:background="@color/material_on_background_disabled"
+        app:layout_constraintEnd_toStartOf="@+id/exercise_btn_edit_carga"
+        app:layout_constraintStart_toStartOf="@id/exercise_tv_carga"
+        app:layout_constraintTop_toBottomOf="@id/exercise_tv_carga" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/exercise_btn_edit_carga"
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_width="50dp"
+        android:layout_height="0dp"
+        android:backgroundTint="@color/black"
+        android:textColor="@color/white"
+        app:icon="@drawable/edit"
+        app:iconSize="25dp"
+        app:layout_constraintBottom_toBottomOf="@id/exercise_tv_carga_value"
+        app:layout_constraintStart_toEndOf="@id/exercise_tv_carga_value"
+        app:layout_constraintEnd_toEndOf="@id/exercise_screen_image"
+        app:layout_constraintTop_toTopOf="@id/exercise_tv_carga_value" />
+
+    <!-- -->
+    <TextView
+        android:id="@+id/exercise_tv_descanso"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:text="Carga (Kg)"
+        app:layout_constraintStart_toStartOf="@id/exercise_screen_series_reps"
+        app:layout_constraintTop_toBottomOf="@id/exercise_screen_series_reps"
+        android:layout_marginTop="16dp"
+        />
+
+    <TextView
+        android:id="@+id/exercise_tv_timer"
+        style="@style/Widget.Material3.TextInputEditText.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toStartOf="@id/exercise_btn_play_timer"
+        app:layout_constraintStart_toStartOf="@id/exercise_tv_descanso"
+        app:layout_constraintTop_toBottomOf="@id/exercise_tv_descanso"
+        android:background="@color/material_on_background_disabled"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/exercise_btn_play_timer"
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_width="50dp"
+        android:layout_height="0dp"
+        android:backgroundTint="@color/black"
+        android:textColor="@color/white"
+        app:icon="@drawable/play_arrow"
+        app:iconSize="25dp"
+        app:layout_constraintBottom_toBottomOf="@id/exercise_tv_timer"
+        app:layout_constraintStart_toEndOf="@id/exercise_tv_timer"
+        app:layout_constraintTop_toTopOf="@id/exercise_tv_timer"
+        app:layout_constraintEnd_toEndOf="@id/exercise_screen_image"/>
+    
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
