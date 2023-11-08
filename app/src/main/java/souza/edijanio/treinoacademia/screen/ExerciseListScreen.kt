@@ -19,7 +19,7 @@ class ExerciseListScreen : AppCompatActivity() {
         val extras : Training = intent.getSerializableExtra("TRAINING") as Training
 
         val detailScreenRv = binding.detailScreenRv
-        detailScreenRv.adapter = ExerciseListAdapter(this, extras.exercise)
+//        detailScreenRv.adapter = ExerciseListAdapter(this, extras.exercise)
 
         binding.exerciseListToolbar.setNavigationOnClickListener {
             finish()

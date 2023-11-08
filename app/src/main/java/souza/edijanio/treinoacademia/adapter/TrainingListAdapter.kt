@@ -37,7 +37,7 @@ class TrainingListAdapter(
 
         holder.itemView.setOnClickListener {
             val intent = Intent(context, ExerciseListScreen::class.java)
-            intent.putExtra("TRAINING", trainingInPosition)
+//            intent.putExtra("TRAINING", trainingInPosition)
             context.startActivity(intent)
         }
 

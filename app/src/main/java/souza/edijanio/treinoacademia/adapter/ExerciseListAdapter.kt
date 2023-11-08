@@ -25,7 +25,7 @@ class ExerciseListAdapter(
 
         fun binding(exercise: Exercise, context: Context) {
             itemView.findViewById<TextView>(R.id.exercise_name)
-                .text = exercise.name
+                .text = exercise.exerciseName
 
             itemView.findViewById<TextView>(R.id.exercise_repetitions).text = "Repetições: ${exercise.repetitions}"
             itemView.findViewById<TextView>(R.id.exercise_series).text = "Series: ${exercise.series}"

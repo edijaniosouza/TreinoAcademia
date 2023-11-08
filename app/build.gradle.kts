@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("kotlin-kapt")
 }
 
 android {
@@ -48,15 +49,16 @@ dependencies {
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 
-    val roomVersion = "2.5.0"
+    val roomVersion = "2.6.0"
 
     implementation("androidx.room:room-runtime:$roomVersion")
-    annotationProcessor("androidx.room:room-compiler:$roomVersion")
-
-    implementation("androidx.room:room-compiler:$roomVersion")
+    kapt("androidx.room:room-compiler:$roomVersion")
+    implementation("androidx.room:room-ktx:$roomVersion")
     // Coil
     implementation("io.coil-kt:coil:2.5.0")
     //Coil Gif
     implementation("io.coil-kt:coil-gif:2.5.0")
+
+    implementation ("com.google.code.gson:gson:2.10.1")
 
 }
