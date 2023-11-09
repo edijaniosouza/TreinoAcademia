@@ -24,31 +24,19 @@
             app:layout_constraintBottom_toBottomOf="parent"
             />
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/exercise_image"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:src="@drawable/supino_livre_reto"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginStart="16dp"
-            app:layout_constraintStart_toEndOf="@id/exercise_item_checkbox"
-            app:layout_constraintTop_toTopOf="parent"
-            android:scaleType="centerCrop"
-            />
-
         <TextView
             android:id="@+id/exercise_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="Stiff"
+            android:layout_marginStart="20dp"
+            android:maxLines="2"
             android:textAlignment="center"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toEndOf="@id/exercise_image"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/exercise_series"
-            android:textSize="18sp"
             android:textColor="@color/white"
-            />
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/exercise_item_checkbox"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Stiff" />
 
         <TextView
             android:id="@+id/exercise_series"
@@ -58,7 +46,7 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:text = "3 series"
             android:textColor="@color/white"
-            app:layout_constraintStart_toEndOf="@id/exercise_name"
+            android:layout_marginEnd="30dp"
             app:layout_constraintBottom_toTopOf="@id/exercise_repetitions"
 
             />

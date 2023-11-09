@@ -24,6 +24,6 @@ interface TrainingDao {
     suspend fun addTraining(vararg training: Training)
 
     @Transaction
-    @Query("SELECT * FROM training")
-    suspend fun getAllTrainingWithExercises(): List<TrainingWithExercises>
+    @Query("SELECT * FROM training WHERE name = :name")
+    suspend fun getAllTrainingWithExercises(name : String): TrainingWithExercises
 }

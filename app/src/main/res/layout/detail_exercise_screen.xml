@@ -14,8 +14,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:navigationIcon="@drawable/arrow_back"
-        app:title="Supino Reto"
-        app:titleCentered="true" />
+        app:titleCentered="true"
+        app:menu="@menu/detail_exercise_menu"/>
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/exercise_screen_image"

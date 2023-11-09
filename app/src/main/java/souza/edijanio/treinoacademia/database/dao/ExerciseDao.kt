@@ -16,6 +16,9 @@ interface ExerciseDao {
     @Query("SELECT * FROM exercise WHERE exercise_id = :exercise")
     suspend fun getExercise(exercise: Exercise): Exercise
 
+    @Query("SELECT * FROM exercise WHERE exercise_id = :exerciseId")
+    suspend fun getExerciseById(exerciseId: Long): Exercise
+
     @Insert
     suspend fun addExercise(exercise: Exercise)
 

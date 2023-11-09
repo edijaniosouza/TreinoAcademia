@@ -11,11 +11,12 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Material3.Dark"
+        android:theme="@style/Theme.Material3.Dark.NoActionBar"
         tools:targetApi="31">
         <activity
             android:name=".screen.DetailExerciseScreen"
-            android:exported="false" />
+            android:exported="false"
+            />
         <activity
             android:name=".screen.TrainingListScreen"
             android:exported="true">

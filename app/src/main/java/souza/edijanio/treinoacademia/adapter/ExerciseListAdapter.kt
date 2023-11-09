@@ -1,5 +1,6 @@
 package souza.edijanio.treinoacademia.adapter
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
@@ -12,14 +13,17 @@ import coil.load
 import souza.edijanio.treinoacademia.R
 import souza.edijanio.treinoacademia.helper.imageLoader
 import souza.edijanio.treinoacademia.model.Exercise
+import souza.edijanio.treinoacademia.model.Training
 import souza.edijanio.treinoacademia.screen.DetailExerciseScreen
 
 
 class ExerciseListAdapter(
     private val context: Context,
-    private val trainingList: List<Exercise>
+    exerciseList: List<Exercise>
 ) :
     RecyclerView.Adapter<ExerciseListAdapter.ViewHolder>() {
+
+    val exerciseList = exerciseList.toMutableList()
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
@@ -33,7 +37,7 @@ class ExerciseListAdapter(
 
             /*TODO: CRIAR LISTA COM GIF E IMAGENS PARA CADA EXERCICIO*/
             val imageLoader = imageLoader(context)
-            itemView.findViewById<ImageView>(R.id.exercise_image).load(R.drawable.musculos_exigidos_nos_exercicios_de_musculacao, imageLoader)
+          //  itemView.findViewById<ImageView>(R.id.exercise_image).load(R.drawable.musculos_exigidos_nos_exercicios_de_musculacao, imageLoader)
         }
 
 
@@ -46,18 +50,24 @@ class ExerciseListAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val exerciseInPosition = trainingList[position]
+        val exerciseInPosition = exerciseList[position]
 
         holder.itemView.setOnClickListener {
             val intent = Intent(context, DetailExerciseScreen::class.java)
-            intent.putExtra("EXERCISE", exerciseInPosition)
+            intent.putExtra("EXERCISE_ID", exerciseInPosition.exerciseId)
             context.startActivity(intent)
         }
 
         holder.binding(exerciseInPosition, context)
     }
 
-    override fun getItemCount(): Int = trainingList.size
+    override fun getItemCount(): Int = exerciseList.size
 
+    @SuppressLint("NotifyDataSetChanged")
+    fun updateList(newExerciseList: List<Exercise>){
+        this.exerciseList.clear()
+        this.exerciseList.addAll(newExerciseList)
+        notifyDataSetChanged()
+    }
 
 }
