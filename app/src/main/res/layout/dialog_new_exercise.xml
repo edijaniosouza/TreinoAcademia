@@ -13,16 +13,24 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp"
         android:layout_marginHorizontal="16dp"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
         >
 
-        <com.google.android.material.textfield.TextInputEditText
+<!--        <com.google.android.material.textfield.TextInputEditText-->
+<!--            android:id="@+id/dialog_form_exercise_name"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:hint="Nome do Exercicio"-->
+<!--            android:inputType="text"-->
+<!--            android:maxLength="30"-->
+<!--            android:maxLines="1" />-->
+
+        <AutoCompleteTextView
             android:id="@+id/dialog_form_exercise_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Nome do Exercicio"
-            android:inputType="text"
-            android:maxLength="30"
-            android:maxLines="1" />
+            android:inputType="none"
+            />
 
     </com.google.android.material.textfield.TextInputLayout>
 

@@ -22,5 +22,6 @@ data class Exercise(
     val series: Int,
     val repetitions: Int,
     val weight: Double? = null,
+    val timer: Int = 0,
     val comment: String? = null
 ) : Serializable

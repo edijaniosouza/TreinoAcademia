@@ -1,16 +1,20 @@
 package souza.edijanio.treinoacademia.screen
 
 import android.os.Bundle
+import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContentProviderCompat.requireContext
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import souza.edijanio.treinoacademia.R
 import souza.edijanio.treinoacademia.adapter.ExerciseListAdapter
 import souza.edijanio.treinoacademia.database.DatabaseProvider
 import souza.edijanio.treinoacademia.databinding.DialogNewExerciseBinding
 import souza.edijanio.treinoacademia.databinding.ExerciseListScreenBinding
+import souza.edijanio.treinoacademia.helper.EXERCISES_LIST
 import souza.edijanio.treinoacademia.model.Exercise
 
 class ExerciseListScreen : AppCompatActivity() {
@@ -28,7 +32,7 @@ class ExerciseListScreen : AppCompatActivity() {
     }
     private var exerciseList = listOf<Exercise>()
     private val adapter = ExerciseListAdapter(this, exerciseList)
-    private var trainingName : String? = null
+    private var trainingName: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,6 +52,8 @@ class ExerciseListScreen : AppCompatActivity() {
         binding.fabAddExercise.setOnClickListener {
             newExerciseDialog(trainingName)
         }
+
+
     }
 
     override fun onResume() {
@@ -68,8 +74,12 @@ class ExerciseListScreen : AppCompatActivity() {
         }
     }
 
-    private fun newExerciseDialog(extras: String?) {
+    private fun newExerciseDialog(trainingName: String?) {
         val exerciseDialogBinding = DialogNewExerciseBinding.inflate(layoutInflater)
+
+        val items = EXERCISES_LIST.keys.toList()
+        val adapter = ArrayAdapter(this, R.layout.list_item_exercise_name, items)
+        exerciseDialogBinding.dialogFormExerciseName.setAdapter(adapter)
 
         MaterialAlertDialogBuilder(this)
             .setView(exerciseDialogBinding.root)
@@ -85,11 +95,10 @@ class ExerciseListScreen : AppCompatActivity() {
                                 .toInt(),
                             repetitions = exerciseDialogBinding.dialogFormExerciseRepetitions.text.toString()
                                 .toInt(),
-                            trainingId = extras!!
+                            trainingId = trainingName!!
                         )
                     )
-
-                    getExercisesByTraining(extras)
+                    getExercisesByTraining(trainingName)
                 }
 
             }
