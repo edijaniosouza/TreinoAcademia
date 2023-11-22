@@ -8,4 +8,7 @@ val EXERCISES_LIST = mapOf(
     "Cross Over" to R.drawable.cross_over,
     "Cross Over Supinado" to R.drawable.cross_over_supinado,
     "Supino Livre Declinado" to R.drawable.supino_livre_declinado,
+    "Levantamento Terra" to 0,
+    "Agachamento Smith" to 0,
+    "Leg Press" to 0,
 )

@@ -95,7 +95,8 @@ class ExerciseListScreen : AppCompatActivity() {
                                 .toInt(),
                             repetitions = exerciseDialogBinding.dialogFormExerciseRepetitions.text.toString()
                                 .toInt(),
-                            trainingId = trainingName!!
+                            trainingId = trainingName!!,
+                            comment = exerciseDialogBinding.dialogFormInputComment.text.toString()
                         )
                     )
                     getExercisesByTraining(trainingName)

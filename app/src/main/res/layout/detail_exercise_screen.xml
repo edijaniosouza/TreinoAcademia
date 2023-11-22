@@ -13,9 +13,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:menu="@menu/detail_exercise_menu"
         app:navigationIcon="@drawable/arrow_back"
-        app:titleCentered="true"
-        app:menu="@menu/detail_exercise_menu"/>
+        app:titleCentered="true" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/exercise_screen_image"
@@ -32,6 +32,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:textSize="18sp"
         android:text="Series x Repetições"
         app:layout_constraintStart_toStartOf="@id/exercise_screen_image"
         app:layout_constraintTop_toBottomOf="@id/exercise_screen_image" />
@@ -52,6 +53,7 @@
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:text="Carga (Kg)"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@id/exercise_tv_seriesvsrep"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/exercise_tv_seriesvsrep"
@@ -59,57 +61,84 @@
 
     <TextView
         android:id="@+id/exercise_tv_carga_value"
-        style="@style/Widget.Material3.TextInputEditText.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="0.0"
         android:background="@color/material_on_background_disabled"
+        android:text="0.0"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="@id/exercise_screen_series_reps"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@id/exercise_tv_carga"
         app:layout_constraintTop_toBottomOf="@id/exercise_tv_carga" />
 
 
-    <!-- -->
-    <TextView
-        android:id="@+id/exercise_tv_descanso"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:text="Carga (Kg)"
-        app:layout_constraintStart_toStartOf="@id/exercise_screen_series_reps"
-        app:layout_constraintTop_toBottomOf="@id/exercise_screen_series_reps"
-        android:layout_marginTop="16dp"
-        />
-
     <TextView
         android:id="@+id/exercise_tv_timer"
-        style="@style/Widget.Material3.TextInputEditText.OutlinedBox"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="0"
-        android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@id/exercise_tv_descanso"
-        app:layout_constraintTop_toBottomOf="@id/exercise_tv_descanso"
-        android:background="@color/material_on_background_disabled"/>
-
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@id/exercise_screen_series_reps"
+        app:layout_constraintStart_toStartOf="@id/exercise_timer"
+        app:layout_constraintEnd_toEndOf="@id/exercise_timer"
+        android:text="Timer"
+        />
     <TextView
         android:id="@+id/exercise_timer"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/exercise_btn_timer"
+        android:layout_marginHorizontal="16dp"
         android:text="10"
-        android:textSize="24sp"
         android:textAlignment="center"
-        />
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@id/exercise_btn_timer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/exercise_tv_timer"
+        tools:text="10" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/exercise_btn_timer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Play"
+        android:textAlignment="center"
+        app:icon="@drawable/play_arrow"
+        app:layout_constraintBottom_toBottomOf="@id/exercise_timer"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="@id/exercise_timer" />
+
+    <TextView
+        android:id="@+id/exercise_tv_comments_details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Detalhes"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@id/exercise_timer"
+        app:layout_constraintTop_toBottomOf="@id/exercise_timer"
         />
+
+    <TextView
+        android:id="@+id/exercise_tv_exercise_comments"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="@id/exercise_tv_comments_details"
+        app:layout_constraintTop_toBottomOf="@id/exercise_tv_comments_details"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="16dp"
+        />
+
+    <Button
+        android:id="@+id/exercise_btn_done"
+        style="@style/Widget.Material3.Button.ElevatedButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="36dp"
+        android:layout_marginBottom="16dp"
+        android:text="CONCLUIR"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
