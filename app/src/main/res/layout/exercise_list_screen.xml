@@ -14,9 +14,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:title="Treino A"
-        app:titleTextColor="@color/black"
         app:titleCentered="true"
         app:navigationIcon="@drawable/arrow_back"
+        app:navigationIconTint="@color/white"
         />
 
     <androidx.recyclerview.widget.RecyclerView

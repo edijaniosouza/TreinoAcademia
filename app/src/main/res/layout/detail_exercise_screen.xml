@@ -16,6 +16,7 @@
         app:menu="@menu/detail_exercise_menu"
         app:navigationIcon="@drawable/arrow_back"
         app:titleCentered="true" />
+    
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/exercise_screen_image"

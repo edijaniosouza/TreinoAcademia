@@ -3,7 +3,6 @@ package souza.edijanio.treinoacademia.screen
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContentProviderCompat.requireContext
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -15,6 +14,7 @@ import souza.edijanio.treinoacademia.database.DatabaseProvider
 import souza.edijanio.treinoacademia.databinding.DialogNewExerciseBinding
 import souza.edijanio.treinoacademia.databinding.ExerciseListScreenBinding
 import souza.edijanio.treinoacademia.helper.EXERCISES_LIST
+import souza.edijanio.treinoacademia.helper.TRAINING
 import souza.edijanio.treinoacademia.model.Exercise
 
 class ExerciseListScreen : AppCompatActivity() {
@@ -38,7 +38,7 @@ class ExerciseListScreen : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        trainingName = intent.getStringExtra("TRAINING")
+        trainingName = intent.getStringExtra(TRAINING)
 
         binding.exerciseListToolbar.title = trainingName
 

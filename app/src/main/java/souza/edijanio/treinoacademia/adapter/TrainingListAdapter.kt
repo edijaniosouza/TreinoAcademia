@@ -8,12 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import souza.edijanio.treinoacademia.R
-import souza.edijanio.treinoacademia.database.dao.TrainingDao
+import souza.edijanio.treinoacademia.helper.TRAINING
 import souza.edijanio.treinoacademia.model.Training
 import souza.edijanio.treinoacademia.screen.ExerciseListScreen
 
@@ -29,6 +25,7 @@ class TrainingListAdapter(
         fun binding(training: Training) {
             itemView.findViewById<TextView>(R.id.main_tv_treino)
                 .text = training.name
+            itemView.findViewById<TextView>(R.id.main_tv_treino_description).text = training.description
         }
     }
 
@@ -43,7 +40,7 @@ class TrainingListAdapter(
 
         holder.itemView.setOnClickListener {
             val intent = Intent(context, ExerciseListScreen::class.java)
-            intent.putExtra("TRAINING", trainingInPosition.name)
+            intent.putExtra(TRAINING, trainingInPosition.name)
             context.startActivity(intent)
         }
 

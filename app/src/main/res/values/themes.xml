@@ -1,12 +1,12 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.TreinoAcademia" parent="Theme.Material3.Light.NoActionBar">
+    <style name="Base.Theme.TreinoAcademia" parent="Theme.Material3.Dark.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
 
-        <item name="colorSecondary">@color/white</item>
-        <item name="colorPrimary">@color/black</item>
+        <item name="colorSecondary">@color/black</item>
+        <item name="colorPrimary">@color/white</item>
     </style>
 
-    <style name="Theme.TreinoAcademia" parent="Base.Theme.TreinoAcademia" />
+<!--    <style name="Theme.TreinoAcademia" parent="Base.Theme.TreinoAcademia" />-->
 </resources>

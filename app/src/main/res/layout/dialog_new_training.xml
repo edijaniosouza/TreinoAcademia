@@ -21,7 +21,7 @@
             android:layout_height="wrap_content"
             android:hint="Nome do treino"
             android:inputType="text"
-            android:maxLength="30"
+            android:maxLength="10"
             android:maxLines="1" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -39,6 +39,7 @@
             android:layout_height="wrap_content"
             android:hint="Descrição"
             android:maxLines="1"
+            android:maxLength="20"
             android:inputType="text"
             />
 

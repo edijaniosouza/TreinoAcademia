@@ -3,14 +3,17 @@ package souza.edijanio.treinoacademia.adapter
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.CheckBox
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import souza.edijanio.treinoacademia.R
+import souza.edijanio.treinoacademia.helper.EXERCISE_ID
 import souza.edijanio.treinoacademia.helper.imageLoader
 import souza.edijanio.treinoacademia.model.Exercise
 import souza.edijanio.treinoacademia.model.Training
@@ -31,16 +34,9 @@ class ExerciseListAdapter(
             itemView.findViewById<TextView>(R.id.exercise_name)
                 .text = exercise.exerciseName
 
-            itemView.findViewById<TextView>(R.id.exercise_repetitions).text = "Repetições: ${exercise.repetitions}"
-            itemView.findViewById<TextView>(R.id.exercise_series).text = "Series: ${exercise.series}"
-
-
-            /*TODO: CRIAR LISTA COM GIF E IMAGENS PARA CADA EXERCICIO*/
-            val imageLoader = imageLoader(context)
-          //  itemView.findViewById<ImageView>(R.id.exercise_image).load(R.drawable.musculos_exigidos_nos_exercicios_de_musculacao, imageLoader)
+            itemView.findViewById<TextView>(R.id.exercise_repetitions).text = context.getString(R.string.qtd_repeticoes, exercise.repetitions)
+            itemView.findViewById<TextView>(R.id.exercise_series).text = context.getString(R.string.qtd_series, exercise.series)
         }
-
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -54,10 +50,14 @@ class ExerciseListAdapter(
 
         holder.itemView.setOnClickListener {
             val intent = Intent(context, DetailExerciseScreen::class.java)
-            intent.putExtra("EXERCISE_ID", exerciseInPosition.exerciseId)
+            intent.putExtra(EXERCISE_ID, exerciseInPosition.exerciseId)
             context.startActivity(intent)
         }
 
+        val checkbox = holder.itemView.findViewById<CheckBox>(R.id.exercise_item_checkbox)
+        Log.i("checkbox", "binding: ${checkbox.id} ----- ${checkbox.isChecked}")
+
+        /*TODO: COMPORTAMENTO CHECKBOX*/
         holder.binding(exerciseInPosition, context)
     }
 

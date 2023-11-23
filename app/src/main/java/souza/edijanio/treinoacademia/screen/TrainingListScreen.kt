@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -63,12 +64,12 @@ class TrainingListScreen : AppCompatActivity() {
             .setNeutralButton("CANCELAR") { _, _ -> }
             .setPositiveButton("CONFIRMAR") { _, _ ->
 
-                CoroutineScope(IO).launch {
+                lifecycleScope.launch {
                     if (!bindingDialog.dialogFormTrainingName.text.isNullOrEmpty()){
                         trainingDao.addTraining(
                             Training(
-                                name = bindingDialog.dialogFormTrainingName.text.toString(),
-                                description = bindingDialog.dialogFormTrainingDescription.text.toString()
+                                name = bindingDialog.dialogFormTrainingName.text.toString().uppercase(),
+                                description = bindingDialog.dialogFormTrainingDescription.text.toString().uppercase()
                             )
                         )
 

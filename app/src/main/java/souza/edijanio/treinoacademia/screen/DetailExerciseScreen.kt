@@ -1,15 +1,12 @@
 package souza.edijanio.treinoacademia.screen
 
 import android.media.MediaPlayer
-import android.opengl.Visibility
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.content.res.AppCompatResources.getDrawable
-import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.lifecycleScope
 import coil.load
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -24,6 +21,7 @@ import souza.edijanio.treinoacademia.database.DatabaseProvider
 import souza.edijanio.treinoacademia.databinding.DetailExerciseScreenBinding
 import souza.edijanio.treinoacademia.databinding.DialogNewExerciseBinding
 import souza.edijanio.treinoacademia.helper.EXERCISES_LIST
+import souza.edijanio.treinoacademia.helper.EXERCISE_ID
 import souza.edijanio.treinoacademia.helper.imageLoader
 import souza.edijanio.treinoacademia.model.Exercise
 
@@ -41,13 +39,13 @@ class DetailExerciseScreen : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        val exerciseId = intent.getLongExtra("EXERCISE_ID", 0L)
+        val exerciseId = intent.getLongExtra(EXERCISE_ID, 0L)
 
         CoroutineScope(Dispatchers.IO).launch {
             exerciseDao.getExerciseById(exerciseId).apply {
                 exercise = this
                 binding.exerciseToolbar.title = this.exerciseName
-                binding.exerciseScreenSeriesReps.text = "${this.series} X ${this.repetitions}"
+                binding.exerciseScreenSeriesReps.text = getString(R.string.series_vs_rep, this.series, this.repetitions)
                 binding.exerciseScreenImage.load(
                     EXERCISES_LIST[this.exerciseName],
                     imageLoader = imageLoader(this@DetailExerciseScreen)
